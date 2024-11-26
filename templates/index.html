@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Inventário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Gestão de Inventário</h1>
+    <div id="app">
+        <div>
+            <h2>Cadastro de Produto</h2>
+            <form id="product-form">
+                <input type="text" id="name" placeholder="Nome do Produto" required>
+                <input type="text" id="sku" placeholder="SKU" required>
+                <input type="number" id="quantity" placeholder="Quantidade" required>
+                <input type="number" id="price" placeholder="Preço" required>
+                <input type="text" id="supplier" placeholder="Fornecedor" required>
+                <button type="submit">Adicionar Produto</button>
+            </form>
+        </div>
+        <div>
+            <h2>Lista de Produtos</h2>
+            <ul id="product-list"></ul>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Gestão de Inventário{% endblock %}
+
+{% block body_class %}dashboard-page{% endblock %}
+
+{% block content %}
+<!-- Conteúdo Principal -->
+<div class="container">
+    <!-- Painel de Visão Geral -->
+    <div id="dashboard-section" class="section">
+        <div class="welcome-text">Bem-vindo, {{ username }}!</div>
+
+        <h2 class="text-left mt-4">Painel de Visão Geral</h2>
+        <div class="row text-center mt-4">
+            <!-- Cartões de Resumo -->
+            <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap">
+                <div class="card text-white bg-primary mx-2">
+                    <div class="card-header">Total de Produtos</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="total-products">6</h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-success mx-2">
+                    <div class="card-header">Estoque Alto</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="stock-ok">2</h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-warning mx-2">
+                    <div class="card-header">Estoque Médio</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="stock-medium">3</h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mx-2">
+                    <div class="card-header">Estoque Baixo</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="stock-low">1</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de Produtos com Filtros -->
+            <div class="table-header">
+                <h2>Lista de Produtos</h2>
+                <button class="filter-button">
+                    <i class="fas fa-filter"></i> Filtro
+                </button>
+            </div>
+
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Nome <input type="text" class="form-control column-filter" data-column="0"
+                                    placeholder="Pesquisar"></th>
+                            <th>Fornecedor <input type="text" class="form-control column-filter" data-column="1"
+                                    placeholder="Pesquisar"></th>
+                            <th>Quantidade <input type="number" class="form-control column-filter" data-column="2"
+                                    placeholder="Pesquisar"></th>
+                            <th>Valor Unitário <input type="text" class="form-control column-filter currency"
+                                    data-column="3" placeholder="Pesquisar"></th>
+                            <th>Valor Total <input type="text" class="form-control column-filter currency"
+                                    data-column="4" placeholder="Pesquisar"></th>
+                            <th>Status <input type="text" class="form-control column-filter" data-column="5"
+                                    placeholder="Pesquisar"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-table-body">
+                        {% for product in products %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.supplier }}</td>
+                            <td>{{ product.quantity }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.total }}</td>
+                            <td>
+                                {% if product.quantity <= 20 %}
+                                <span class="status-low">Baixo</span>
+                                {% elif product.quantity <= 50 %}
+                                <span class="status-medium">Médio</span>
+                                {% else %}
+                                <span class="status-ok">OK</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endblock %}]
+
+    {% block custom_scripts %}
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    {% endblock %}

@@ -1,0 +1,46 @@
+/* Escopo exclusivo para a página add_product */
+.add-product-page .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.add-product-page .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.add-product-page .card-header {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 15px;
+    background-color: #007bff; /* Cor de fundo para o título */
+    color: white; /* Cor do texto */
+}
+
+.add-product-page .form-group label {
+    font-weight: bold;
+}
+
+.add-product-page .form-control,
+.add-product-page .btn {
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.add-product-page .form-control {
+    height: 45px;
+}
+
+.add-product-page .form-control:hover,
+.add-product-page .btn:hover,
+.add-product-page .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.add-product-page .btn {
+    padding: 10px 15px;
+}

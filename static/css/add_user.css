@@ -1,0 +1,46 @@
+/* Escopo exclusivo para a página add_user */
+.add-user-page .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.add-user-page .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.add-user-page .card-header {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 15px;
+    background-color: #007bff; /* Cor de fundo para o título */
+    color: white; /* Cor do texto */
+}
+
+.add-user-page .form-group label {
+    font-weight: bold;
+}
+
+.add-user-page .form-control,
+.add-user-page .btn {
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.add-user-page .form-control {
+    height: 45px;
+}
+
+.add-user-page .form-control:hover,
+.add-user-page .btn:hover,
+.add-user-page .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.add-user-page .btn {
+    padding: 10px 15px;
+}

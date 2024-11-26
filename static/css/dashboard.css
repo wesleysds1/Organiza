@@ -1,0 +1,233 @@
+/* dashboard.css */
+
+/* Estilo Geral */
+.dashboard-page {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-page .navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-page .container {
+    margin-top: 30px;
+}
+
+/* Títulos */
+.dashboard-page .welcome-text {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.dashboard-page h1,
+.dashboard-page h2 {
+    text-align: center;
+    color: #343a40;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Cartões */
+.dashboard-page .row.cards-row {
+    display: flex; /* Apenas para a linha dos cartões */
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.dashboard-page .card {
+    flex: 0 1 20%; /* Define largura flexível */
+    min-width: 250px; /* Define largura mínima */
+    max-width: 300px; /* Define largura máxima */
+    height: 150px; /* Define altura fixa */
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: center;
+}
+
+.dashboard-page .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-page .card-header {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 15px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.dashboard-page .card-body {
+    font-size: 2.5rem; /* Aumenta o tamanho da fonte */
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Alinha o conteúdo verticalmente */
+}
+.list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-group-item {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: #f8f9fa;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 20px); /* Dois cartões por linha */
+        min-width: 200px; /* Ajusta largura mínima */
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        flex: 1 1 100%; /* Um cartão por linha */
+    }
+}
+/* Tabela */
+.dashboard-page .table {
+    width: 100%; /* Largura total */
+    max-width: 1100px; /* Limite de largura para manter a responsividade */
+    margin: 20px auto; /* Centralizar a tabela */
+    table-layout: auto; /* Layout fixo */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-page .table thead th {
+    background-color: #e9ecef;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px;
+}
+
+.dashboard-page .table tbody tr:hover {
+    background-color: #f2f2f2; /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Alterar o cursor para indicar interatividade */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Evita quebra de linha */
+    /* width: 16.66%; /* Divide as colunas igualmente */
+}
+
+.dashboard-page .table th input.column-filter {
+    width: 100%; /* Ajusta o tamanho do input ao cabeçalho */
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding: 5px;
+    visibility: block; /* Mantém o espaço reservado */
+}
+
+.table-wrapper {
+    overflow-x: auto; /* Permite rolagem horizontal em dispositivos menores */
+}
+
+/* Status */
+.status-low, .status-medium, .status-ok {
+    font-weight: bold;
+}
+
+.status-low {
+    color: red;
+}
+
+.status-medium {
+    color: orange;
+}
+
+.status-ok {
+    color: green;
+}
+
+.dashboard-page .column-filter {
+    display: none; /* Inicialmente oculto */
+    width: 100%; /* Ajusta a largura ao cabeçalho */
+    padding: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+/* Mostrar os filtros quando a classe show-filters estiver na tabela */
+.dashboard-page .table.show-filters .column-filter {
+    display: block !important; /* Força a exibição dos filtros */
+    visibility: visible !important; /* Garante que os filtros sejam visíveis */
+    opacity: 1;
+}
+
+/* Botão de Filtro */
+.filter-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 0; /* Remove margens extras */
+}
+.filter-button i {
+    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+    color: #555; /* Cor do ícone */
+}
+
+.filter-button:hover {
+    background-color: #007bff; /* Cor de fundo ao passar o mouse */
+    border-color: #bbb; /* Alteração da cor da borda ao passar o mouse */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Sombra mais forte ao passar o mouse */
+}
+
+.table-header {
+    display: flex;
+    justify-content: start; /* Alinha os elementos no início */
+    align-items: center; /* Garante alinhamento vertical */
+    gap: 15px; /* Adiciona espaçamento fixo entre os elementos */
+    margin-top: 30px; /* Adiciona espaçamento superior para afastar do painel acima */
+    margin-bottom: 15px; /* Espaço inferior do bloco */
+}
+
+.table-header h2 {
+    margin: 0; /* Remove margens adicionais do título */
+    font-size: 1.8rem; /* Tamanho do título */
+}
+
+.filter-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #007bff;
+}
+
+.filter-input {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Ajuste da barra de pesquisa */
+.search-bar {
+    margin-bottom: 20px;
+}

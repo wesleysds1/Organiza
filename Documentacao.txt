@@ -1,0 +1,47 @@
+	Passo 1: Instale o Python: 
+
+Certifique-se de que a nova máquina tenha o Python instalado.
+Durante a instalação, marque a opção “Add Python to PATH”.
+
+	Passo 2: Instale o pip (se ainda não estiver instalado):
+ 
+O pip geralmente é incluído automaticamente com a instalação do Python.
+Verifique se o pip está funcionando executando o comando:
+bash
+Copiar código
+pip --version
+
+	Passo 3: Instalar as Dependências:
+
+No diretório do projeto, crie um arquivo requirements.txt com o seguinte conteúdo (se ainda não existir):
+Copiar código
+Flask
+Flask-Login
+Flask-Cors
+Na nova máquina, navegue até o diretório do projeto usando o terminal ou a linha de comando:
+bash
+Copiar código
+cd caminho/para/seu/projeto
+Execute o seguinte comando para instalar todas as dependências:
+bash
+Copiar código
+pip install -r requirements.txt
+e após isso rodar o código pip install bcrypt
+Passo 3: Configurar o Banco de Dados
+Se você está usando um banco de dados SQLite, certifique-se de transferir o arquivo database.db para a nova máquina.
+Caso queira reiniciar o banco de dados, você pode excluir o database.db e executar o app.py novamente para recriar o banco de dados com as tabelas necessárias.
+
+	Passo 4: Executar o Projeto na Nova Máquina
+
+Navegue até o diretório do projeto na linha de comando:
+bash
+Copiar código
+cd caminho/para/seu/projeto
+Execute o aplicativo:
+bash
+Copiar código
+python app.py
+
+	Passo 5: Acesse o aplicativo no navegador
+
+Abra o navegador e vá para http://127.0.0.1:5000.
