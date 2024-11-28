@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Gestão de Inventário{% endblock %}
+
+{% block body_class %}dashboard-page{% endblock %}
+
+{% block content %}
+<!-- Conteúdo Principal -->
+<div class="container">
+    <!-- Painel de Visão Geral -->
+    <div id="dashboard-section" class="section">
+        <div class="welcome-text">Bem-vindo, {{ username }}!</div>
+
+        <h2 class="text-left mt-4">Painel de Visão Geral</h2>
+        <div class="row text-center mt-4">
+            <!-- Cartões de Resumo -->
+            <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap">
+                <!-- Skeleton loaders para os cartões -->
+                {% for i in range(4) %}
+                <div class="card bg-light mx-2 card-loader">
+                    <div class="card-header">
+                        <div class="skeleton skeleton-text"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="skeleton skeleton-number"></div>
+                        <div class="skeleton skeleton-text"></div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Cartões reais -->
+                <div class="card text-white bg-primary mx-2 d-none">
+                    <div class="card-header">Total de Produtos</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="total-products"></h5>
+                        <p class="card-text">Produtos cadastrados no inventário</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-success mx-2 d-none">
+                    <div class="card-header">Estoque Alto</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="stock-ok"></h5>
+                        <p class="card-text">Produtos com estoque suficiente</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-warning mx-2 d-none">
+                    <div class="card-header">Estoque Médio</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="stock-medium"></h5>
+                        <p class="card-text">Produtos com estoque moderado</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mx-2 d-none">
+                    <div class="card-header">Estoque Baixo</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="stock-low"></h5>
+                        <p class="card-text">Produtos com estoque crítico</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de Produtos com Filtros -->
+            <div class="table-header">
+                <h2>Lista de Produtos</h2>
+                <button class="filter-button">
+                    <i class="fas fa-filter"></i> Filtro
+                </button>
+            </div>
+
+            <div class="table-responsive mt-3">
+                <!-- Spinner para carregamento -->
+                <div id="spinner" class="text-center my-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Carregando...</span>
+                    </div>
+                </div>
+
+                <!-- Tabela -->
+                <table class="table table-bordered d-none" id="product-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Nome <input type="text" class="form-control column-filter" data-column="0"
+                                    placeholder="Pesquisar"></th>
+                            <th>Fornecedor <input type="text" class="form-control column-filter" data-column="1"
+                                    placeholder="Pesquisar"></th>
+                            <th>Quantidade <input type="number" class="form-control column-filter" data-column="2"
+                                    placeholder="Pesquisar"></th>
+                            <th>Valor Unitário <input type="text" class="form-control column-filter currency"
+                                    placeholder="Pesquisar"></th>
+                            <th>Valor Total <input type="text" class="form-control column-filter currency"
+                                    placeholder="Pesquisar"></th>
+                            <th>Status <input type="text" class="form-control column-filter" placeholder="Pesquisar">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block custom_scripts %}
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    {% endblock %}

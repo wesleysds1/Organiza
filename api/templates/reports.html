@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Relatórios{% endblock %}
+
+{% block body_class %}reports-page{% endblock %}
+
+{% block content %}
+<div class="reports-page">
+    <h2 class="page-title">Relatórios de Produtos</h2>
+    <div class="grid-container">
+        <!-- Gráfico 1 -->
+        <div class="grid-item">
+            <h3>Gráfico 1: Status dos Produtos</h3>
+            <canvas id="chart1"></canvas>
+        </div>
+
+        <!-- Gráfico 2 -->
+        <div class="grid-item">
+            <h3>Gráfico 2: Entradas por Mês</h3>
+            <table id="table2">
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th>Entradas</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Preenchido dinamicamente -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Gráfico 3 -->
+        <div class="grid-item">
+            <h3>Gráfico 3: Produtos por Fornecedor</h3>
+            <table id="table3">
+                <thead>
+                    <tr>
+                        <th>Fornecedor</th>
+                        <th>Total de Produtos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Preenchido dinamicamente -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Gráfico 4 -->
+        <div class="grid-item">
+            <h3>Gráfico 4: Gastos por Mês</h3>
+            <canvas id="chart4"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block custom_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/reports.js') }}"></script>
+{% endblock %}
